@@ -14,9 +14,7 @@ function bundle(input, config) {
         resolve(),
         commonjs(),
       ],
-      onwarn: (warning) => {
-        warnings.push(warning);
-      }
+      onwarn: warning => warnings.push(warning),
     })
     .then(bundle => bundle.generate({format: 'esm'}))
     .then(generated => {
