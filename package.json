@@ -2,13 +2,19 @@
   "name": "rollup-plugin-stimulus",
   "version": "0.0.0",
   "description": "Rollup.js plugin for rolling Stimulus.js applications",
-  "main": "dist/rollup-plugin-stimulus.js",
+  "main": "dist/rollup-plugin-stimulus.cjs.js",
+  "module": "dist/rollup-plugin-stimulus.js",
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "pretest": "rm -rf dist && rollup -c",
-    "test": "ava test/*.js"
+    "pretest": "npm run build",
+    "test": "ava test/*.js",
+    "build": "rm -rf dist && rollup -c"
   },
   "repository": {
     "type": "git",
@@ -20,6 +26,12 @@
     "rollup-plugin"
   ],
   "author": "Matt Light",
+  "contributors": [
+    {
+      "name": "Matt Light",
+      "email": "matt@paren.io"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lightster/rollup-plugin-stimulus/issues"
