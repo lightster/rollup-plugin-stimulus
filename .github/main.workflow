@@ -3,14 +3,14 @@ workflow "Publish to NPM" {
   resolves = ["Publish"]
 }
 
-action "Match only branches" {
+action "Match only tags" {
   uses = "actions/bin/filter@0dbb077f64d0ec1068a644d25c71b1db66148a24"
   args = "tag v*"
 }
 
 action "Update version number in package.json" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  needs = ["Match only branches"]
+  needs = ["Match only tags"]
   args = "npm --no-git-tag-version version from-git"
 }
 
