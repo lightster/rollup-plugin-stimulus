@@ -11,7 +11,7 @@ action "Match only tags" {
 action "Update version number in package.json" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
   needs = ["Match only tags"]
-  args = "npm --no-git-tag-version version from-git"
+  args = "--no-git-tag-version version from-git"
 }
 
 action "Install dependencies" {
