@@ -1,4 +1,3 @@
-import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import { rollup } from 'rollup';
 import stimulus from '../';
@@ -12,7 +11,6 @@ function bundle(input, config) {
       plugins: [
         stimulus(config),
         resolve(),
-        commonjs(),
       ],
       onwarn: warning => warnings.push(warning),
     })
